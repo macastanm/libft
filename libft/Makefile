@@ -6,7 +6,7 @@
 #    By: macastan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 14:27:45 by macastan          #+#    #+#              #
-#    Updated: 2022/11/15 12:10:12 by macastan         ###   ########.fr        #
+#    Updated: 2022/11/18 16:18:01 by macastan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,14 @@ FILES = ft_isalpha.c \
 		ft_substr.c \
 		ft_strjoin.c \
 		ft_strtrim.c \
-		ft_itoa.c
+		ft_split.c \
+		ft_itoa.c \
+		ft_strmapi.c \
+		ft_striteri.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c
 
 OBJS = $(FILES:.c=.o)
 
