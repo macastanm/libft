@@ -6,7 +6,7 @@
 /*   By: macastan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:41:23 by macastan          #+#    #+#             */
-/*   Updated: 2022/11/08 10:36:06 by macastan         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:14:16 by macastan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,20 @@
 # include <sys/uio.h>
 # include <fcntl.h>
 
+typedef struct s_list
+{
+	struct s_list	*next;
+	void			*content;
+}			t_list;
+
+t_list	*ft_lstnew(void *content);
+t_list	*ft_lstlast(t_list *lst);
 size_t	ft_strlen(const char *c);
 size_t	ft_strlcpy(char *dest, const char *src, size_t n);
 size_t	ft_strlcat(char *dest, const char *src, size_t n);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 void	*ft_memset(void *str, int c, size_t n);
 void	ft_bzero(void *str, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
@@ -46,6 +57,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int		ft_lstsize(t_list *lst);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);

@@ -6,7 +6,7 @@
 #    By: macastan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 14:27:45 by macastan          #+#    #+#              #
-#    Updated: 2022/11/18 16:18:01 by macastan         ###   ########.fr        #
+#    Updated: 2022/11/23 17:15:39 by macastan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,32 +47,33 @@ FILES = ft_isalpha.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c
 
-OBJS = $(FILES:.c=.o)
+BONUS = ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c
+
+OBJS = $(FILES:%.c=%.o)
+BONUS_OBJS = $(BONUS:%.c=%.o)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -c
 AR = ar rcs
 RM = rm -f
-MSG1 = @echo "Compiled"
-MSG2 = @echo "Cleaned"
-MSG3 = @echo "ReCompiled"
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(FILES)
-	$(AR) $(NAME) $(OBJS)
-	$(MSG1)
+	@$(AR) $(NAME) $(OBJS)
+
+bonus: $(OBJS) $(BONUS_OBJS)
+	@$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
 
 clean:
-	$(RM) $(OBJS)
-	$(MSG2)
+	@$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
-	$(MSG2)
+	@$(RM) $(NAME)
 
 re: fclean all
-	$(MSG3)
-
-.PHONY: all clean fclean re
