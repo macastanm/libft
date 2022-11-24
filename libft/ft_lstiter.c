@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macastan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 16:08:15 by macastan          #+#    #+#             */
-/*   Updated: 2022/11/23 17:27:37 by macastan         ###   ########.fr       */
+/*   Created: 2022/11/24 13:40:21 by macastan          #+#    #+#             */
+/*   Updated: 2022/11/24 14:15:50 by macastan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst || !del)
+	if (!lst || !f)
 		return ;
-	del(lst->content);
-	free(lst);
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }
-/*void	del(void *nod)
+/*void	f(void *conteudo)
 {
-	free (nod);
+	printf("quando entra na f: %s\n", (char *)conteudo);
 }
 
 int	main(void)
@@ -40,11 +43,8 @@ int	main(void)
 	new2->next = NULL;
 	ft_lstadd_front(&new2, new);
 	ft_lstadd_front(&new, head);
-	printf("%s,%s,%s\n", (char *)head->content, (char *)head->next->content, 
+	printf("%s,%s,%s\n", (char *)head->content, (char *)head->next->content,
 										(char *)head->next->next->content);
-	printf("%p %p %p %p\n", head, head->next, head->next->next, 
-									head->next->next->next);
-	ft_lstdelone(new, del);
-	printf("\n%p\n", new);
+	ft_lstiter(head, f);
 	return (0);
 }*/

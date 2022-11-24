@@ -6,7 +6,7 @@
 #    By: macastan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 14:27:45 by macastan          #+#    #+#              #
-#    Updated: 2022/11/23 17:15:39 by macastan         ###   ########.fr        #
+#    Updated: 2022/11/24 14:53:28 by macastan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,10 @@ BONUS = ft_lstnew.c \
 		ft_lstsize.c \
 		ft_lstlast.c \
 		ft_lstadd_back.c \
-		ft_lstdelone.c
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c
 
 OBJS = $(FILES:%.c=%.o)
 BONUS_OBJS = $(BONUS:%.c=%.o)
